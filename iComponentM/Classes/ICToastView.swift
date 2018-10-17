@@ -8,8 +8,20 @@
 
 import Foundation
 
+// Class is created to show toastview instead of alert...
 public extension UIViewController {
 
+    /**
+     Call this function for showing toastview for dynamic time constraint.
+     - Parameters:
+     - message: Pass your alert message in String.
+     - withDuration: Parameter use to manage time interval for toast view.
+     
+     ### Usage Example: ###
+     ````
+     showToast(message : "Process completed!!!", withDuration:5.0)
+     ````
+     */
     public func showToast(message : String, withDuration:CGFloat) {
         let font = UIFont.systemFont(ofSize: 16.0)
         let labelWidth = self.view.frame.size.width - 40
@@ -32,8 +44,19 @@ public extension UIViewController {
             toastLabel.removeFromSuperview()
         })
     }
-
-    //Code snippet to get message actual height
+    
+    /**
+     Call this function to get message actual height.
+     - Parameters:
+     - text: Pass String.
+     - font: Pass required font.
+     - width: Pass required width.
+     
+     ### Usage Example: ###
+     ````
+     let labelTextHeight = self.getLabelHeight(text: "This is an message string", font: UIFont.systemFont(ofSize: 16.0), width: self.view.frame.size.width - 40)
+     ````
+     */
     public func getLabelHeight(text:String, font:UIFont, width:CGFloat) -> CGFloat {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: width , height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
@@ -45,6 +68,18 @@ public extension UIViewController {
     }
 
     //Code snippet to get message actual width
+    /**
+     Call this function to get message actual width.
+     - Parameters:
+     - text: Pass String.
+     - font: Pass required font.
+     - width: Pass required width.
+     
+     ### Usage Example: ###
+     ````
+     let labelTextWidth = self.getLabelWidth(text: "This is an message string", font: UIFont.systemFont(ofSize: 16.0), width: self.view.frame.size.width - 40)
+     ````
+     */
     public func getLabelWidth(text:String, font:UIFont, width:CGFloat) -> CGFloat {
         let dummyLabel = UILabel.init()
         dummyLabel.text = text
